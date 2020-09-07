@@ -1,0 +1,26 @@
+<!DOCtype html>
+<html>
+    <head>
+        <title>To-do List</title>
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="box" id="heading">
+            <h1><%=dayname%> !</h1>
+        </div>
+        <div class="box">
+            <form method="POST", action="/delete">
+                <%newItems.forEach(function(itm, idx){%>
+                    <div class="item">
+                        <input name="<%=itm.id%>" type="checkbox" value="<%=dayname%>" onchange="this.form.submit()">
+                        <p><%=itm.name%></p>
+                    </div>
+                <%});%>
+            </form>
+        <form action="/" method="POST">
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" value="<%=dayname%>" name="add">+</button>
+        </form>
+        </div>
+    </body>
+</html>
